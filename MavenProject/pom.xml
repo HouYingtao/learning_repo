@@ -6,6 +6,7 @@
 
     <groupId>com.hyt.mavenProject</groupId>
     <artifactId>mavenTest</artifactId>
+    <packaging>pom</packaging>
     <version>1.0-SNAPSHOT</version>
     <build>
         <plugins>
@@ -24,6 +25,9 @@
             </plugin>
         </plugins>
     </build>
+    <modules>
+        <module>../../project_repository</module>
+    </modules>
 
     <dependencies>
         <dependency>
