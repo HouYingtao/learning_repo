@@ -1,5 +1,8 @@
 package com.hyt.test;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  * 功能介绍
  *
@@ -9,7 +12,7 @@ package com.hyt.test;
 public class ArrayTest {
 
     public static void main(String[] args) {
-        //
+        List<String> list = new ArrayList<>();
     }
 
 }
