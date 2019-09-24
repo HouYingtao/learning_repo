@@ -1,7 +1,6 @@
 package com.hyt.jdbc.datasource.druid;
 
 import com.alibaba.druid.pool.DruidDataSourceFactory;
-
 import javax.sql.DataSource;
 import java.io.IOException;
 import java.sql.Connection;
@@ -11,16 +10,16 @@ import java.sql.Statement;
 import java.util.Properties;
 
 /**
- * Druid连接池的工具类
+ * Druid连接池的工具类.
  */
 public class DruidJDBCUtils {
 
     /**
-     * 定义成员变量 DataSource
+     * 定义成员变量 DataSource.
      */
-    private static DataSource ds ;
+    private static DataSource ds;
 
-    static{
+    static {
         try {
             //1.加载配置文件
             Properties pro = new Properties();
@@ -44,17 +43,14 @@ public class DruidJDBCUtils {
     /**
      * 释放资源
      */
-    public static void close(Statement stmt,Connection conn){
+    public static void close(Statement stmt, Connection conn) {
 
-       close(null,stmt,conn);
-
+        close(null, stmt, conn);
     }
 
+    public static void close(ResultSet rs, Statement stmt, Connection conn) {
 
-    public static void close(ResultSet rs , Statement stmt, Connection conn){
-
-
-        if(rs != null){
+        if (rs != null) {
             try {
                 rs.close();
             } catch (SQLException e) {
@@ -62,8 +58,7 @@ public class DruidJDBCUtils {
             }
         }
 
-
-        if(stmt != null){
+        if (stmt != null) {
             try {
                 stmt.close();
             } catch (SQLException e) {
@@ -71,9 +66,10 @@ public class DruidJDBCUtils {
             }
         }
 
-        if(conn != null){
+        if (conn != null) {
             try {
-                conn.close();//归还连接
+                //归还连接
+                conn.close();
             } catch (SQLException e) {
                 e.printStackTrace();
             }
@@ -83,9 +79,7 @@ public class DruidJDBCUtils {
     /**
      * 获取连接池方法
      */
-
-    public static DataSource getDataSource(){
-        return  ds;
+    public static DataSource getDataSource() {
+        return ds;
     }
-
 }
