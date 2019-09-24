@@ -13,7 +13,7 @@ import org.junit.Test;
 public class QRTest {
     @Test
     public void qrcode(){
-        QRCodeUtil.encodeQRCode("www.baidu.com", "C:\\test\\first.png");
+        QRCodeUtil.encodeQRCode("www.baidu.com", "C:\\test\\first2.png");
     }
 
 }

@@ -14,6 +14,8 @@ import com.google.zxing.client.j2se.BufferedImageLuminanceSource;
 import com.google.zxing.client.j2se.MatrixToImageWriter;
 import com.google.zxing.common.BitMatrix;
 import com.google.zxing.common.HybridBinarizer;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import javax.imageio.ImageIO;
 import java.awt.image.BufferedImage;
 import java.io.File;
@@ -30,7 +32,7 @@ import java.util.Map;
  */
 public class QRCodeUtil {
 
-    // private static Logger log = LoggerFactory.getLogger(QRCodeUtil.class);
+     private static Logger log = LoggerFactory.getLogger(QRCodeUtil.class);
 
     /**
      * 生成二维码
@@ -57,9 +59,9 @@ public class QRCodeUtil {
             // 判断目标文件所在的目录是否存在
             if(!file.getParentFile().exists()) {
                 // 如果目标文件所在的目录不存在，则创建父目录
-                // log.info("目标文件所在目录不存在，准备创建它！");
+                log.info("目标文件所在目录不存在，准备创建它！");
                 if(!file.getParentFile().mkdirs()) {
-                    // log.info("创建目标文件所在目录失败！");
+                    log.info("创建目标文件所在目录失败！");
                     return;
                 }
             }
@@ -87,7 +89,7 @@ public class QRCodeUtil {
             // 写入文件
             MatrixToImageWriter.writeToPath(bitMatrix, format, outputPath);
         } catch (Exception e) {
-            // log.error(e.getMessage(), e);
+            log.error(e.getMessage(), e);
         }
     }
 
@@ -127,7 +129,7 @@ public class QRCodeUtil {
 
             return content;
         } catch (Exception e) {
-            // log.error(e.getMessage(), e);
+            log.error(e.getMessage(), e);
         }
 
         return null;
